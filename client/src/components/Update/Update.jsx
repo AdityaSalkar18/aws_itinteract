@@ -39,7 +39,7 @@ const Update = () => {
 
     try {
       const updateFormData = { ...formData, sd: subdomain };
-      const url = "http://localhost:8080/api/update";
+      const url = `${import.meta.env.VITE_APP_API_URL}/update`;
 
       const response = await fetch(url, {
         method: "POST",
@@ -85,7 +85,7 @@ const Update = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/update');
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/update`);
         setUpdates(response.data);
       } catch (error) {
         console.error('Error fetching updates:', error);

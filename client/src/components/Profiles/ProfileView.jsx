@@ -11,7 +11,7 @@ const ProfileView = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/api/profile/${id}`); // Adjust the API route as per your setup
+                const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/profile/${id}`); // Adjust the API route as per your setup
                 if (response.ok) {
                     const data = await response.json();
                     setUserProfile(data);
@@ -64,7 +64,7 @@ const ProfileView = () => {
         }
     
         try {
-            const url = "http://localhost:8080/api/notification";
+            const url = `${import.meta.env.VITE_APP_API_URL}/notification`;
     
             const payload = {
                 reciverid: id,
@@ -109,7 +109,7 @@ const ProfileView = () => {
     useEffect(() => {
         const getProfile = async () => {
             try {
-                const url = "http://localhost:8080/api/profile/get-my-profile"; // Update the URL to your backend server running on port 8080
+                const url = `${import.meta.env.VITE_APP_API_URL}/profile/get-my-profile`; // Update the URL to your backend server running on port 8080
                 const response = await fetch(url, {
                     method: "GET",
                     headers: {

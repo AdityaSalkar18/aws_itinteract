@@ -11,7 +11,7 @@ const MessagesRecive = () => {
 
         const token = localStorage.getItem('token');
 
-        const response = await fetch('http://localhost:8080/api/notification/recived-notification', {
+        const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/notification/recived-notification`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

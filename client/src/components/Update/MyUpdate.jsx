@@ -18,7 +18,7 @@ const MyUpdate = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/update/user', {
+                const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/update/user`, {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
 
@@ -37,7 +37,7 @@ const MyUpdate = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/update/${id}`, {
+            const response = await axios.delete(`${import.meta.env.VITE_APP_API_URL}/update/${id}`, {
                 headers: {
 
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -79,7 +79,7 @@ const MyUpdate = () => {
         e.preventDefault();
     
         try {
-            const url = `http://localhost:8080/api/update/${currentUpdateId}`; // Use the currentUpdateId
+            const url = `${import.meta.env.VITE_APP_API_URL}/update/${currentUpdateId}`; // Use the currentUpdateId
             const response = await axios.patch(url, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

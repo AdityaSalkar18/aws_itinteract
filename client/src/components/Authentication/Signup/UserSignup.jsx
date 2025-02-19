@@ -23,7 +23,7 @@ const UserSignup = () => {
        const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-          const url = "http://localhost:8080/api/users/";
+          const url = `${import.meta.env.VITE_APP_API_URL}/users/`;
           const {data: res} = await axios.post(url, data);
           navigate("/");
           console.log(res.message);

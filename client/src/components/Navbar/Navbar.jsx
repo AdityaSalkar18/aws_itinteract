@@ -47,7 +47,7 @@ const Navbar = () => {
   useEffect(() => {
     const getProfile = async () => {
       try {
-        const url = "http://localhost:8080/api/profile/get-my-profile"; // Update the URL to your backend server running on port 8080
+        const url = `${import.meta.env.VITE_APP_API_URL}/profile/get-my-profile`; // Update the URL to your backend server running on port 8080
         const response = await fetch(url, {
           method: "GET",
           headers: {

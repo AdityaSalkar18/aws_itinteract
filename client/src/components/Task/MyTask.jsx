@@ -16,7 +16,7 @@ const MyTask = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8080/api/task/user",
+                    `${import.meta.env.VITE_APP_API_URL}/task/user`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -35,7 +35,7 @@ const MyTask = () => {
     const handleDelete = async (id) => {
         try {
             const response = await axios.delete(
-                `http://localhost:8080/api/task/${id}`,
+                `${import.meta.env.VITE_APP_API_URL}/task/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -75,7 +75,7 @@ const MyTask = () => {
         e.preventDefault();
 
         try {
-            const url = `http://localhost:8080/api/task/${currentTaskId}`; // Use the currentTaskId
+            const url = `${import.meta.env.VITE_APP_API_URL}/task/${currentTaskId}`; // Use the currentTaskId
             const response = await axios.patch(url, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

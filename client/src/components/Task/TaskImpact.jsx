@@ -49,7 +49,7 @@ const TaskImpact = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await axios.get("http://localhost:8080/api/reply/myreply", {
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/reply/myreply`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

@@ -26,7 +26,7 @@ const TaskView = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/task/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/task/${id}`);
         if (response.ok) {
           const data = await response.json();
           setTask(data);
@@ -56,7 +56,7 @@ const TaskView = () => {
 
       const linkFormData = { ...formData, tid: id, tsd: task.sd };
 
-      const url = "http://localhost:8080/api/link";
+      const url = `${import.meta.env.VITE_APP_API_URL}/link`;
 
       const response = await fetch(url, {
         method: "POST",
@@ -88,7 +88,7 @@ const TaskView = () => {
     const fetchData = async () => {
       try {
         // Use the task ID (`id`) in the URL to fetch links by task
-        const response = await axios.get(`http://localhost:8080/api/link/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/link/${id}`);
         setLinks(response.data); // Update the state with fetched links
       } catch (error) {
         console.error('Error fetching links:', error);
@@ -126,7 +126,7 @@ const TaskView = () => {
     setSuccessMessage("");
 
     try {
-      const url = "http://localhost:8080/api/reply";
+      const url = `${import.meta.env.VITE_APP_API_URL}/reply`;
 
       const replyContent = replies[`${linkId}_${linkUId}_${linkSd}`];
 

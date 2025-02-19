@@ -91,7 +91,7 @@ export default function Signup() {
     }
 
     try {
-      const url = "http://localhost:8080/api/users/student";
+      const url = `${import.meta.env.VITE_APP_API_URL}/users/student`;
       const { data: res } = await axios.post(url, data);
       navigate("/");
       console.log(res.message);

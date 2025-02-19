@@ -13,7 +13,7 @@ const StudentProfile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/profile/complete/student');
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/profile/complete/student`);
         setProfiles(response.data);
       } catch (error) {
         console.error('Error fetching complete profiles:', error);
@@ -70,7 +70,7 @@ const StudentProfile = () => {
     }
 
     try {
-      const url = "http://localhost:8080/api/notification";
+      const url = `${import.meta.env.VITE_APP_API_URL}/notification`;
 
       const payload = {
         reciverid: reciverid,
@@ -129,7 +129,7 @@ const StudentProfile = () => {
   useEffect(() => {
     const getProfile = async () => {
       try {
-        const url = "http://localhost:8080/api/profile/get-my-profile"; // Update the URL to your backend server running on port 8080
+        const url = `${import.meta.env.VITE_APP_API_URL}/profile/get-my-profile`; // Update the URL to your backend server running on port 8080
         const response = await fetch(url, {
           method: "GET",
           headers: {

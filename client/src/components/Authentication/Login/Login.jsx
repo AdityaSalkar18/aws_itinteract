@@ -80,7 +80,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/auth";
+      const url = `${import.meta.env.VITE_APP_API_URL}/auth`;
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
       window.location.href = "/home";

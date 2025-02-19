@@ -23,7 +23,7 @@ const Task = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/task');
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/task`);
         setTasks(response.data);
       } catch (error) {
         console.error('Error fetching tasks:', error);
@@ -55,7 +55,7 @@ const Task = () => {
   
     try {
       const taskFormData = { ...formData, sd: subdomain };
-      const url = "http://localhost:8080/api/task";
+      const url = `${import.meta.env.VITE_APP_API_URL}/task`;
   
       const response = await fetch(url, {
         method: "POST",

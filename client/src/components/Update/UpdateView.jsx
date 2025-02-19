@@ -20,7 +20,7 @@ const UpdateView = () => {
   useEffect(() => {
     const fetchUpdate = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/update/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/update/${id}`);
         if (response.ok) {
           const data = await response.json();
           setUpdate(data);
@@ -49,7 +49,7 @@ const UpdateView = () => {
     try {
       const commentFormData = { ...formData, uid: id };
   
-      const url = "http://localhost:8080/api/comment";
+      const url = `${import.meta.env.VITE_APP_API_URL}/comment`;
   
       const response = await fetch(url, {
         method: "POST",
@@ -93,7 +93,7 @@ const UpdateView = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/comment');
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/comment`);
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments:', error);

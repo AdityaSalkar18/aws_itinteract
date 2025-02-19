@@ -9,7 +9,7 @@ const MessagesSend = () => {
       try {
         const token = localStorage.getItem('token');
 
-        const response = await fetch('http://localhost:8080/api/notification/send-notification', {
+        const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/notification/send-notification`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
